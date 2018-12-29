@@ -1,0 +1,120 @@
+REST, Spring, Machine Learning, Functional & Imperative Programming , HADOOP , Dependency Injection , Time Series Analysis , Data mining , Concurrency & Parallelization ,Microservices,
+ Thread, Factory pattern, basic oop
+
+
+REST(REpresentational State Transfer) - Client and Server stateless communication protocol - Http request response
+
+URI (Uniform Resource Identifier)
+GET - Provides a read only access to a resource.
+
+PUT - Used to create a new resource.
+
+DELETE - Used to remove a resource.
+
+POST - Used to update an existing resource or create a new resource.
+
+Jersey framework can be used, Apache Tomcat.
+
+Common Gateway Interface(CGI), a specification for transferring information between a World Wide Web server and a CGI program.
+
+File -> new project -> Dynamic web project
+
+Serializable interface - > object is converted to stream of bytes and stored in a file.
+
+Web.xml - > configurations are written. 
+
+File ? export ? Web ? War File . This War file is deployed in tomcat , gets extracted. http://localhost:8080 Advanced rest client
+
+Tomcat is a servlet container. JVM maintains garbage collection. Servlet calls service() method to process client's request. init() -> service() ->destroy()
+
+HttpSession session = request.getSession(); session handling. @WebServlet - this annotations are used , if these are used, we do not need web.xml
+
+Hibernate - object relational mapping. The Bean module provides BeanFactory, which is a sophisticated implementation of the factory pattern.
+
+primitive data types to objects is called boxing (wrapper class)
+
+Spring - applicationcontext xml. For object comparison, we use equals() method. When creating bean, set it to singleton
+
+public static void main(String[] args) {
+      ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
+      HelloWorld obj = (HelloWorld) context.getBean("helloWorld");
+      obj.getMessage();
+   }
+
+The Beans.xml is used to assign unique IDs to different beans and to control the creation of objects with different values without impacting any of the Spring source files.
+With lazy instantiation, a program refrains from creating certain resources until the resource is first needed -- freeing valuable memory space. 
+Singleton pattern restricts the instantiation of a class and ensures that only one instance of the class exists in the java virtual machine. Singleton classhas private constructor.
+
+IoC means inversion of control.The Inversion of Control (IoC) and Dependency Injection (DI) patterns are all about removing dependencies from your code.
+Here is dependency.
+public class TextEditor {
+   private SpellChecker spellChecker;
+   
+   public TextEditor() {
+      spellChecker = new SpellChecker();
+   }
+}
+
+Here is Ioc.Thus the flow of control has been "inverted" by Dependency Injection (DI) because you have effectively delegated dependances to some external system.
+public class TextEditor {
+   private SpellChecker spellChecker;
+   
+   public TextEditor(SpellChecker spellChecker) {
+      this.spellChecker = spellChecker;
+   }
+}
+1> Constructor-based DI is accomplished when the container invokes a class constructor with a number of arguments, each representing a dependency on the other class.
+2> Setter-based DI is accomplished by the container calling setter methods on your beans after invoking a no-argument constructor or no-argument static factory method to instantiate your bean.
+
+Beans are objects of spring Ioc container. Spring JDBCTemplate class used for database applications. Transactions - Atomicity,Consistency,Isolation,Durability.
+The web.xml file will be kept in the WebContent/WEB-INF directory of your web application -> used for mapping spring with html. @RequestMapping(method = RequestMethod.GET) -> Controller
+In factory pattern, we create objects but we dont reveal the logic of object creation. Java constructor has no return type. Default accesss specifier means accessible in same package.
+Time Series Analysis in R forecasts pattern. Supervised Learning(Training data set), Unsupervised Learning(K-Means) , Recommendation ( Amazon provides what products to buy) [ Also known
+as Collaborative Filtering].
+Apache Mahout is used for Machine Laerning with java and hadoop. HDFS is Hadoop Distributed File System. Map creates key-value pairs, reduce divides those into smaller tuples.
+
+Microservices - A complex application divided into several small independant modules. Spring Boot provides this service - Ioc and Aspect Oriented Programming(modular approach). Jersey can also be used.
+
+Functional Programming - It is declarative programming. No control flow. Only function calls(recursions). Prolog.
+Imperative programming - There is control flow. Loops, conditions, functions are there. C,C++,JAVA.
+Runtime Polymorphism - https://www.geeksforgeeks.org/dynamic-method-dispatch-runtime-polymorphism-java/
+Encapsulation - private data members, public getter settter mathods.
+
+Main features of spring - DI and Aspect Oriented Programming. DI helps to make classes independant. AOP tries to decouple cross-cutting concerns from the objects they affect. 
+The functions that span multiple points of an application are called cross-cutting concerns. Three main parts of Spring - Context, Beans, Core. @Autowired is used to get rid off 
+outer bean - inner bean thing. Spring does it itself. Apache axis2 was used to convert WSDL files to java classes.
+
+HashMap<String, Integer> map = new HashMap<>();
+map.put("ABC",10);
+map.put("pqr",20);
+Integer a = map.get("pqr");
+
+Vector is synchronized in java but, ArrayList is not. Synchronized means two threads can not access same vector at a time - JVM handles this.
+
+Thread tutorial - https://www.youtube.com/watch?v=oUSpVDbT5eg
+
+Java 8 supports functional programming. We are not saying how to do, we mention what to do -> FP. How to do is IP.
+
+class Mutable{
+  private int value;
+
+  public Mutable(int value) {
+     this.value = value;
+  }
+
+  //getter and setter for value
+}
+
+class Immutable {
+  private final int value;
+
+  public Immutable(int value) {
+     this.value = value;
+  }
+
+  //only getter
+}
+
+For Immutable objects, we can not change the value of the members. 
+
+@requestmapping is used in spring for mapping one URL.
